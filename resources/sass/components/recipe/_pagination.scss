@@ -1,0 +1,118 @@
+.pagination { 
+	text-align: center;
+		ul { 
+		padding: 0;
+		margin: 0.1rem 0 0;
+		border-radius: 10px;
+		li { 
+			display: inline; 
+			display: inline-flex; 
+			margin: 0.3rem; 
+			color: $text-primary;
+      :hover {
+        cursor: pointer;
+      }
+		}
+	}
+}
+
+.pagination li a { 
+	padding: 0.6rem; 
+	color: $text-secondary;
+	text-decoration: none;
+	border-radius: 5px;
+	background: $background-primary;
+  transition: transform .2s;
+
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 0 14px 50px -4px $dark-2;
+  }
+}
+
+.active-page {
+  border: $primary 1px solid;
+  color: $primary !important;
+  transform: scale(1.1);
+  box-shadow: 0 14px 50px -4px $dark-2;
+}
+
+.pagination li.page_link a:hover {
+	background: var(--c2);
+	color: #fff;
+}
+
+.pagination li.active_page a { 
+	background: var(--c2); 
+	color: #fff;
+}
+
+.pagination li > a {
+	font-weight: bold;
+	font-size: 15px;
+	top: -4px;
+	position: relative;
+}
+
+.pagination li a span {
+	min-width: 20px;
+	display: inline-block;
+}
+
+.pagination li.page_link.active_page.active a {
+	cursor: default;
+}
+
+li.first_link a, li.last_link a  {
+	background: #fff0;
+	/* border: 2px solid #fff; */
+	color: #fff0;
+	display: block;
+	padding: 10px 12px;
+}
+
+li.first_link a:before, li.last_link a:before{
+	content: "";
+	border: 2px solid #fff;
+	width: 12px;
+	height: 12px;
+	display: block;
+	position: absolute;
+	border-width: 3px 0 0 3px;
+	transform: rotate(-45deg);
+	margin-top: 3px;
+	margin-left: 3px;
+	border-radius: 2px;
+}
+
+li.last_link a:before  {
+	transform: rotate(135deg);
+	margin-left: -3px;
+}
+
+li.first_link a:before, li.last_link a:before{
+	filter: drop-shadow(5px 5px 0 #fff);
+	margin-left: 0px;
+}
+
+li.next_link a:hover, 
+li.first_link a:hover, li.last_link a:hover {
+	background: var(--c2);
+	border-color: var(--c2);
+}
+
+.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+  cursor: not-allowed;
+}
+
+li.page_link.first.active_page.active a {
+	cursor: default;
+}
+
+@media screen and (orientation:landscape) and (max-width: 800px) {
+	.pagination ul {
+		margin-top: 20px;
+	}
+}

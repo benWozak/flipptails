@@ -1,0 +1,240 @@
+
+// --------------
+// Global styles
+// --------------
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+// Mixins
+@mixin size($x, $y) {
+  width: $x;
+  height: $y;
+}
+
+@mixin animated-button-border($color, $hover, $width, $vertical, $horizontal, $duration) {
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration calc($duration / 3);
+  position: relative;
+  
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0; height: 0;
+    
+    #{$vertical}: 0; 
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+    
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+  
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+    
+    border-radius: 5px;
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+  
+  &:hover {
+    color: $hover;
+    
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+    
+    &::before { transition-delay: 0s, 0s, $duration; }
+    
+    &::after { transition-delay: 0s, $duration, 0s; }
+  }
+}
+
+
+// Text
+h3, h4, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+
+h3, h4 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: $d1;
+}
+
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  margin-bottom: 10px;
+}
+
+
+p, li {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: $d2;
+  line-height: 22px;
+}
+
+
+ul, li {
+  text-decoration: none;
+  list-style: disc outside;
+}
+
+
+ul {
+  padding-left: 20px;
+}
+
+
+svg {
+  margin: 0px;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+// --------------
+// Overall card
+// --------------
+
+.card-container {
+  position: relative;
+  @include size(300px, 400px);
+  min-width: 300px;
+  min-height: 400px;
+  margin: 4px;
+  perspective: 1000px;
+}
+
+// .active is applied to .card when .card is clicked.
+.active {
+  transform: translateZ(0px) rotateY(180deg) !important;
+
+  &:after {
+    display: none;
+    &:hover:after { opacity: 0 !important }
+  }
+
+}
+
+.card {
+  display: inline-block;
+  @include size(100%, 100%);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  // :after allows for a more performant box-shadow because only opacity is being animated.
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    @include size(100%, 100%);
+    border-radius: 5px;
+    box-shadow: 0 14px 50px -4px $dark-2;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1.4);
+  }
+
+  &:hover {
+    transform: translateZ(0px);
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+    
+  .side {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    @include size(100%, 100%);
+    border-radius: 5px;
+    background-color: $light-1;
+  }
+
+  .front { z-index: 2; }
+  .back { transform: rotateY(180deg); }
+  .info { padding: 16px; }
+ }
+
+
+
+
+// --------------
+// Front of card
+// --------------
+
+.front {
+  .img {
+    background-color: $light-2;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px 5px 0 0;
+    @include size(100%, 250px);
+  }
+}
+
+
+// --------------
+// Back of card
+// --------------
+
+.back {
+  position: relative;
+
+  h3 {
+    margin-top: 6px;
+    margin-bottom: 18px;
+  }
+
+  li {
+    line-height: 22px;
+    margin: 2px 0 6px 0;
+  }
+
+  .draw-border {
+    @include animated-button-border($primary, $secondary, 2.5px, bottom, right, 0.15s);
+  }
+
+  .button {
+    @include size(calc(100% - 24px), 42px);
+    position: absolute;
+    bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Oswald', sans-serif;;
+    padding: 0.5em 1em;
+    letter-spacing: 0.05rem;
+  
+    .icon {
+      height: 14px;
+      margin-right: 1rem;
+    }
+  }
+}
