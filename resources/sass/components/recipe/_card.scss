@@ -67,7 +67,7 @@ h3, h4, p, ul, li {
 h3, h4 {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  color: $d1;
+  color: $dark-1;
 }
 
 
@@ -81,7 +81,7 @@ h3 {
 p, li {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  color: $d2;
+  color: $dark-3;
   line-height: 22px;
 }
 
@@ -96,10 +96,7 @@ ul {
   padding-left: 20px;
 }
 
-// --------------
 // Overall card
-// --------------
-
 .card-container {
   position: relative;
   @include size(300px, 400px);
@@ -126,7 +123,7 @@ ul {
   transform-style: preserve-3d;
   transform: translateZ(-100px);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  // :after allows for a more performant box-shadow because only opacity is being animated.
+
   &:after {
     content: '';
     position: absolute;
@@ -168,12 +165,7 @@ ul {
  }
 
 
-
-
-// --------------
 // Front of card
-// --------------
-
 .front {
   .img {
     background-color: $light-2;
@@ -184,11 +176,7 @@ ul {
   }
 }
 
-
-// --------------
 // Back of card
-// --------------
-
 .back {
   position: relative;
 

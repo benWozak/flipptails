@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use App\Models\Recipe;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class RecipeController extends Controller
 {
@@ -21,48 +17,6 @@ class RecipeController extends Controller
     $results = json_decode($response->body(), true);
     
     $recipes = $this->formatRecipes($results);
-
-
-    // $spreadsheet = new Spreadsheet();
-    // $activeWorksheet = $spreadsheet->getActiveSheet();
-    // $filename ='recipes.xlsx';
-
-    // // set headers
-    // $activeWorksheet->setCellValue('A1', 'id');
-    // $activeWorksheet->setCellValue('B1', 'name');
-    // $activeWorksheet->setCellValue('D1', 'tags');
-    // $activeWorksheet->setCellValue('F1', 'category');
-    // $activeWorksheet->setCellValue('H1', 'type');
-    // $activeWorksheet->setCellValue('I1', 'glass');
-
-    // try {
-    //   $row = 2;
-    //   foreach($recipes as $recipe) {
-    //     $activeWorksheet->setCellValue('A' . $row, $recipe['id'] ? $recipe['id'] : null);
-    //     $activeWorksheet->setCellValue('B' . $row, $recipe['name'] ? $recipe['name'] : null);
-    //     $activeWorksheet->setCellValue('D' . $row, $recipe['tags'] ? $recipe['tags'] : null);
-    //     $activeWorksheet->setCellValue('F' . $row, $recipe['category'] ? $recipe['category'] : null);
-    //     $activeWorksheet->setCellValue('H' . $row, $recipe['type'] ? $recipe['type'] : null);
-    //     $activeWorksheet->setCellValue('I' . $row, $recipe['glass'] ? $recipe['glass'] : null);
-    //     $row++;
-    //   }
-
-    //   $writer = new Xlsx($spreadsheet);
-    //   // $writer = new Csv($spreadsheet);
-    //   // $writer->setOffice2003Compatibility(true);
-    //   // ob_start();
-    //   $writer->save($filename);
-
-    //   // header('Content-Type: application/vnd.ms-excel');
-    //   // header('Content-Disposition: attachment;filename="'.$filename.'"');
-    //   // header('Cache-Control: max-age=0');
-    //   // ob_end_clean();
-
-    //   // $writer->save('php://output');
-    // } catch(Exception $e) {
-    //   exit($e->getMessage());
-    // }
-
     
     return view('recipes', ['recipes' => $recipes]);
   }

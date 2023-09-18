@@ -11,7 +11,6 @@
       <ul id="menu">
         <li><a class='menu-item' href="{{ url('recipes')}}">API Recipes</a></li>
         <li><a class='menu-item' href="{{ url('excel')}}">Excel Recipes</a></li>
-        {{-- <li><button onclick="{{ Helper::exportRecipesToExcel('$recipes') }}">Export Excel</button></li> --}}
       </ul>
     </div>
   </nav>
@@ -48,7 +47,7 @@
         });
 
 
-        // Toggle Menu Icon ========================================
+        //==================== Toggle Menu Icon ====================
         let toggleIcon = document.querySelector('.menuIcon');
 
         toggleIcon.addEventListener('click', () => {
