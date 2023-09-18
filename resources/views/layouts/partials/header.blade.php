@@ -9,8 +9,8 @@
       </div>
   
       <ul id="menu">
-        <li><a class='menu-item' href="{{ url('recipes')}}">Community</a></li>
-        <li><a class='menu-item' href="{{ url('excel')}}">Personal</a></li>
+        <li><a class='menu-item' href="{{ url('recipes')}}">API Recipes</a></li>
+        <li><a class='menu-item' href="{{ url('excel')}}">Excel Recipes</a></li>
         {{-- <li><button onclick="{{ Helper::exportRecipesToExcel('$recipes') }}">Export Excel</button></li> --}}
       </ul>
     </div>
