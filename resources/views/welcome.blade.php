@@ -4,7 +4,9 @@
 <br />
 <x-landing.hero />
 <div class="wrapper">
-  <h1>Drink of the day</h1>
+  <br />
+  <br />
+  <h1 class="drink-title">Drink of the day</h1>
   <div class="flex-container">
     <div id="cocktail-data">
   </div>
@@ -20,7 +22,7 @@
           const ingredients = [];
 
         // Loop through the attributes and find those containing "strIngredient" and "strMeasure"
-        for (let i = 1; i <= 15; i++) { // Assuming there are 15 ingredients in the API response
+        for (let i = 1; i <= 15; i++) {
             const ingredientKey = `strIngredient${i}`;
             const measureKey = `strMeasure${i}`;
 
@@ -34,6 +36,7 @@
             }
         }
 
+        // Reformat recipe object
         const recipe = {
           id: cocktailData.idDrink,
           name: cocktailData.strDrink,
@@ -57,46 +60,28 @@
 
           // Create an HTML structure to display the cocktail information
           const cocktailInfo = `
-          <div class="card-container inactive">
-            <div class="card">
+          <div class="drink-of-the-day-container">
+            <div class="drink-of-the-day-card">
               <div class="side front">
                 <div class="img" style="background-image: url('${recipe.image}')"></div>
-                <div class="info">
+                <div class="drink-of-the-day-info">
                   <h3>${recipe.name}</h3>
-                  <p>${recipe.category}</p>
-                  <p>${recipe.type}</p>
-                  <p>${recipe.glass}</p>
-                </div>
-              </div>
-              <div class="side back">
-                <div class="info">
-                  <h3>${recipe.name}</h3>
+                  <p>${recipe.category} / ${recipe.type}</p>
+                  <p>Serve in ${recipe.glass}</p>
+                  <br />
+                  <h4>Ingredients:</h4>
                   <ul>${ingredientsHTML}</ul>
                   <br/>
                   <h4>Instructions:</h4>
                   <p>${recipe.instructions}</p>
-                  <div class="button draw-border">
-                    <x-fas-heart-circle-plus class="icon" /> Add To Favourites
-                  </div>
+                  <br />
+                </div>
                 </div>
               </div>
             </div>
           </div>
           `;
-          // const cocktailInfo = `
-          //     <h3>${cocktailData.strDrink}</h3>
-          //     <img src="${cocktailData.strDrinkThumb}" alt="${cocktailData.strDrink}" />
-          //     <p>${cocktailData.strAlcoholic}</p>
-          //     <p>Serve in a ${cocktailData.strGlass}</p>
-          //     <br />
-          //     <h4>Ingredients:</h4>
-          //     <ul>${ingredientsHTML}</ul>
-          //     <br />
-          //     <h4>Instructions:</h4>
-          //     <p>${cocktailData.strInstructions}</p>
-          // `;
-
-          // Insert the cocktail information into the 'cocktail-data' div
+        
           document.getElementById('cocktail-data').innerHTML = cocktailInfo;
       })
       .catch(error => {

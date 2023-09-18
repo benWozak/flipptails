@@ -75,7 +75,6 @@ h3 {
   font-size: 24px;
   font-weight: 500;
   letter-spacing: -0.2px;
-  margin-bottom: 10px;
 }
 
 
@@ -110,7 +109,6 @@ ul {
   perspective: 1000px;
 }
 
-// .active is applied to .card when .card is clicked.
 .active {
   transform: translateZ(0px) rotateY(180deg) !important;
 
@@ -159,7 +157,14 @@ ul {
 
   .front { z-index: 2; }
   .back { transform: rotateY(180deg); }
-  .info { padding: 16px; }
+  .info { 
+    padding: 16px; 
+    .instructions-box {
+      max-height: 100px;
+      overflow-y: auto;
+    }
+    
+  }
  }
 
 
@@ -195,26 +200,24 @@ ul {
   li {
     line-height: 22px;
     margin: 2px 0 6px 0;
+    list-style: none;
   }
 
   .draw-border {
-    @include animated-button-border($primary, $secondary, 2.5px, bottom, right, 0.15s);
+    @include animated-button-border($primary, $secondary, 1.5px, bottom, right, 0.20s);
   }
 
   .button {
-    @include size(calc(100% - 24px), 42px);
+    @include size(calc(100% - 24px), 28px);
     position: absolute;
-    bottom: 0.4rem;
+    bottom: 0.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
     background: none;
     border: none;
     cursor: pointer;
-    line-height: 1.5;
-    font: 700 1.2rem 'Oswald', sans-serif;;
-    padding: 0.5em 1em;
-    letter-spacing: 0.05rem;
+    font: 700 1.1rem 'Oswald', sans-serif;;
   
     .icon {
       height: 14px;

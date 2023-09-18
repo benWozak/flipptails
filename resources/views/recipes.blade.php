@@ -17,29 +17,29 @@
   </div>
 </div>
 
-  <script type="text/javascript">
-    const cards = document.querySelectorAll('.card');
-    function cardTransition() {
-      if (this.classList.contains('active')) {
-        this.classList.remove('active')
-      } else {
-        this.classList.add('active');
-      }
+<script type="text/javascript">
+  const cards = document.querySelectorAll('.card');
+  function cardTransition() {
+    if (this.classList.contains('active')) {
+      this.classList.remove('active')
+    } else {
+      this.classList.add('active');
     }
+  }
 
-    cards.forEach(card => card.addEventListener('click', cardTransition));
+  cards.forEach(card => card.addEventListener('click', cardTransition));
 
 
-    if(window.location.pathname) {
-      const url = window.location.pathname;
-      const subRoute = url.substr(url.lastIndexOf("/")+1);
-      window.addEventListener("load", (event) => {
+  if(window.location.pathname) {
+    const url = window.location.pathname;
+    const subRoute = url.substr(url.lastIndexOf("/")+1);
+    window.addEventListener("load", (event) => {
 
-        document.querySelectorAll('.page-anchor').forEach(page => {
-          if(subRoute === page.innerHTML) {
-            page.classList.add('active-page');
-          }
-        });
+      document.querySelectorAll('.page-anchor').forEach(page => {
+        if(subRoute === page.innerHTML) {
+          page.classList.add('active-page');
+        }
       });
-    }
-  </script>
+    });
+  }
+</script>
