@@ -1,12 +1,3 @@
-
-// --------------
-// Global styles
-// --------------
-
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
 // Mixins
 @mixin size($x, $y) {
   width: $x;
@@ -104,13 +95,6 @@ ul, li {
 
 ul {
   padding-left: 20px;
-}
-
-
-svg {
-  margin: 0px;
-  min-width: 24px;
-  min-height: 24px;
 }
 
 // --------------
