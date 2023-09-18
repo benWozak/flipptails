@@ -41,7 +41,7 @@ class ExcelController extends Controller
             //   }
             // } elseif(gettype($cell->getValue()) === 'NULL') {
             //   $value = "<i>No Data</i>";
-            //   $rowData[] = $value;
+            //   $rowData[] = $value;resources/css/app.css
             // } else {
             //   $rowData[] = $cell->getValue();
             // }
