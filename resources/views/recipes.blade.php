@@ -17,10 +17,8 @@
   </div>
 </div>
 
-{{-- @section('javascript') --}}
   <script type="text/javascript">
     const cards = document.querySelectorAll('.card');
-    console.log('hit')
     function cardTransition() {
       if (this.classList.contains('active')) {
         this.classList.remove('active')
@@ -45,5 +43,3 @@
       });
     }
   </script>
-{{-- @endsection --}}
-{{-- @yield('javascript') --}}
