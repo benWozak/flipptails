@@ -47,7 +47,7 @@ Before you begin, ensure you have met the following requirements:
     php artisan key:generate
     ```
 
-###Usage
+## Usage
 
 1. Start the development server:
 
