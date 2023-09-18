@@ -22,48 +22,42 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/benWozak/flipptails.git
-   ```
+    git clone https://github.com/benWozak/flipptails.git
+    ```
 
 2. Navigate to the project directory:
 
-```shell
-cd flipptails
-```
+    ```shell
+    cd flipptails
+    ```
 
 3. Install PHP dependencies using Composer:
-```shell
-composer install
-```
+    ```shell
+    composer install
+    ```
 
 4. Install Node dependencies using NPM:
-```shell
-npm install
-```
-
-5. Copy the .env.example file to .env:
-
-```shell
-cp .env.example .env
-```
+    ```shell
+    npm install
+    ```
 
 6. Generate an application key:
 
-```shell
-php artisan key:generate
-```
+    ```shell
+    php artisan key:generate
+    ```
 
 ###Usage
 
 1. Start the development server:
 
-```shell
-php artisan serve
-```
+    ```shell
+    php artisan serve
+    ```
 
 2. Open a second terminal and run npm
-```shell
-npm run dev
-```
+    ```shell
+    npm run dev
+    ```
 
 Your application should now be accessible at http://localhost:8000.
