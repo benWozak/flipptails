@@ -14,6 +14,7 @@
   text-align: center;
   width: 96%;
 } 
+
 @media(max-width: 768px) {
   .nav-wrapper {
     width: 90%;
@@ -36,7 +37,13 @@
 
   a {
     text-decoration: none;
-    color: $text-primary;
+    color: $primary;
+  }
+
+  a:hover, a:active {
+    color: $secondary;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
   }
 }
 
@@ -80,8 +87,7 @@
 }
 
 #navbar li a:hover {
-  /* border-bottom: 1px solid rgb(28, 121, 184); */
-  color: rgb(28, 121, 184);
+  color: $secondary;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
 }
@@ -93,7 +99,7 @@
   width: 0%;
   height: 1px;
   bottom: -1px;
-  background: $text-primary;
+  background: $secondary;
 }
 
 #navbar li a:before {
@@ -102,13 +108,12 @@
 }
 
 #navbar li a:after {
-  background: $text-primary;
+  background: $secondary;
   right: 0;
-  /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
 }
 
 #navbar li a:hover:before {
-  background: $text-primary;
+  background: $secondary;
   width: 100%;
   transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
 }
@@ -116,13 +121,11 @@
 #navbar li a:hover:after {
   background: transparent;
   width: 100%;
-  /* transition: 0s; */
 }
 
-/*======================================================
-                    Mobile Menu Menu Icon
-  ======================================================*/
+/*============ Mobile Menu Menu Icon ============*/
 @media(max-width: 640px) {
+
   .menuIcon {
     cursor: pointer;
     display: block;
@@ -134,7 +137,6 @@
     z-index: 12;
   }
 
-  /* Icon Bars */
   .icon-bars {
     background: $text-primary;
     position: absolute;
@@ -154,8 +156,6 @@
     top: -8px;
     height: 2px;
     width: 20px;
-/*     -webkit-transition: top 0.2s ease 0.3s;
-    transition: top 0.2s ease 0.3s; */
     -webkit-transition: 0.3s width 0.4s;
     transition: 0.3s width 0.4s;
   }
@@ -169,63 +169,10 @@
     bottom: -8px;
     height: 2px;
     width: 20px;
-/*     -webkit-transition: top 0.2s ease 0.3s;
-    transition: top 0.2s ease 0.3s; */
     -webkit-transition: 0.3s width 0.4s;
     transition: 0.3s width 0.4s;
   }
 
-  /* Bars Shadows */
-  .icon-bars.overlay {
-    background: rgb(97, 114, 129);
-    background: rgb(183, 199, 211);
-    width: 20px;
-    animation: middleBar 3s infinite 0.5s;
-    -webkit-animation: middleBar 3s infinite 0.5s;
-  } @keyframes middleBar {
-      0% {width: 0px}
-      50% {width: 20px}
-      100% {width: 0px}
-    } @-webkit-keyframes middleBar {
-        0% {width: 0px}
-        50% {width: 20px}
-        100% {width: 0px}
-      }
-
-  .icon-bars.overlay::before {
-    background: rgb(97, 114, 129);
-    background: rgb(183, 199, 211);
-    width: 10px;
-    animation: topBar 3s infinite 0.2s;
-    -webkit-animation: topBar 3s infinite 0s;
-  } @keyframes topBar {
-      0% {width: 0px}
-      50% {width: 10px}
-      100% {width: 0px}
-    } @-webkit-keyframes topBar {
-        0% {width: 0px}
-        50% {width: 10px}
-        100% {width: 0px}
-      }
-
-  .icon-bars.overlay::after {
-    background: rgb(97, 114, 129);
-    background: rgb(183, 199, 211);
-    width: 15px;
-    animation: bottomBar 3s infinite 1s;
-    -webkit-animation: bottomBar 3s infinite 1s;
-  } @keyframes bottomBar {
-      0% {width: 0px}
-      50% {width: 15px}
-      100% {width: 0px}
-    } @-webkit-keyframes bottomBar {
-        0% {width: 0px}
-        50% {width: 15px}
-        100% {width: 0px}
-      }
-
-
-  /* Toggle Menu Icon */
   .menuIcon.toggle .icon-bars {
     top: 5px;
     transform: translate3d(0, 5px, 0) rotate(135deg);
@@ -245,21 +192,11 @@
     transition-delay: 0.1s;
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
-
-  .menuIcon.toggle .icon-bars.overlay {
-    width: 20px;
-    opacity: 0;
-    -webkit-transition: all 0s ease 0s;
-    transition: all 0s ease 0s;
-  }
 }
 
-
-/*======================================================
-                   Responsive Mobile Menu 
-  ======================================================*/
+// Responsive Mobile Menu 
 .overlay-menu {
-  background: lightblue;
+  background: $background-primary;
   color: $text-primary;
   display: flex;
   align-items: center;
@@ -289,13 +226,12 @@
   text-transform: uppercase;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
-/*   -webkit-transition: 0.2s opacity 0.2s ease-out;
-  transition: 0.2s opacity 0.2s ease-out; */
+  text-decoration: none;
 }
 
 .overlay-menu li a:hover,
 .overlay-menu li a:active {
-  color: rgb(28, 121, 184);
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  color: $secondary;
+  -webkit-transition: $secondary 0.3s ease;
+  transition: $secondary 0.3s ease;
 }

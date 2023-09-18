@@ -17,9 +17,10 @@
             <li>{{$ingredient['measurement']}} - {{$ingredient['ingredient']}}</li>
           @endforeach
         </ul>
-        <br/>
         <h4>Instructions:</h4>
-        <p>{{$recipe['instructions']}}</p>
+        <div class="instructions-box">
+          <p>{{$recipe['instructions']}}</p>
+        </div>
         <div class="button draw-border">
           <x-fas-heart-circle-plus class="icon" /> Add To Favourites
         </div>

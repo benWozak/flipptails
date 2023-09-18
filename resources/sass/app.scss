@@ -6,13 +6,10 @@
 @import 'layouts/partials/header.scss';
 @import 'layouts/partials/footer.scss';
 
+@import 'pages/welcome.scss';
 @import 'pages/recipes.scss';
 @import 'pages/excel.scss';
 
 @import 'components/recipe/card.scss';
 @import 'components/recipe/pagination.scss';
-
-// @import 'layouts/components/header';
-
-// @import 'components/recipe-card';
-// @import 'components/alphabetical-pagination';
+@import 'components/landing/hero.scss';
